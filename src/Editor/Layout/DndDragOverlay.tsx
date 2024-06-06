@@ -7,11 +7,11 @@ import {
   type ComponentItemType,
   type ComponentMapType,
   type FieldConfigType,
-  type StructureItemType,
-} from 'src/type';
+  type StructureItemType
+} from 'src/types';
 import { ButtonWrapper } from './LeftSider/Styled';
 
-interface DndDragOverlayProps {
+type DndDragOverlayProps = {
   isNew: boolean;
   componentItems: ComponentItemType[];
   activeId?: string | null;
@@ -19,7 +19,7 @@ interface DndDragOverlayProps {
   fieldConfig?: FieldConfigType;
   componentMap?: ComponentMapType;
   structureItem?: StructureItemType;
-}
+};
 
 // 用于拖动时，显示组件
 const DndDragOverlay: FC<DndDragOverlayProps> = (props) => {
@@ -30,8 +30,8 @@ const DndDragOverlay: FC<DndDragOverlayProps> = (props) => {
       // 拖动结束后的放置动画
       dropAnimation={{
         sideEffects: defaultDropAnimationSideEffects({
-          styles: { active: { opacity: '0.5' } },
-        }),
+          styles: { active: { opacity: '0.5' } }
+        })
       }}
     >
       {activeId ? (
@@ -44,14 +44,14 @@ const DndDragOverlay: FC<DndDragOverlayProps> = (props) => {
                 structureItem,
                 componentItems,
                 componentMap,
-                editorProps: { currentId },
+                editorProps: { currentId }
               })}
             </SortableContainer>
           </Form>
         )
       ) : null}
     </DragOverlay>,
-    document.body,
+    document.body
   );
 };
 

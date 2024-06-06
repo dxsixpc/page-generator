@@ -1,18 +1,18 @@
 import { type CSSProperties, type FC } from 'react';
 import { GridWrapper } from './Styled';
 
-export interface GridProps {
+export type GridProps = {
   size: number;
   step?: number;
   onSizeChange: (size: number) => void;
-}
+};
 
 const Grid: FC<GridProps> = ({ size }) => {
   return (
     <GridWrapper
       style={
         {
-          '--grid-size': `${size}px`,
+          '--grid-size': `${size}px`
         } as CSSProperties
       }
     />

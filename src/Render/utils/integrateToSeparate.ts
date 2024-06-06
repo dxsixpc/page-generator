@@ -1,8 +1,8 @@
 import {
   type ComponentItemType,
   type ComponentStructureType,
-  type StructureItemType,
-} from 'src/type';
+  type StructureItemType
+} from 'src/types';
 
 /**
  * @name 数据与布局结构分离
@@ -20,7 +20,7 @@ const integrateToSeparate = (componentConfig: ComponentItemType[]): ComponentStr
         componentItems.push({ ...component, children: undefined });
         return {
           id,
-          children: loopComponents(children),
+          children: loopComponents(children)
         };
       }
       componentItems.push({ ...component });
@@ -30,7 +30,7 @@ const integrateToSeparate = (componentConfig: ComponentItemType[]): ComponentStr
 
   return {
     structureItems: loopComponents(componentConfig),
-    componentItems,
+    componentItems
   };
 };
 

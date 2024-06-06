@@ -1,4 +1,4 @@
-import { Button } from '@dxsixpc/components';
+import { Button } from '@zpcscc/components';
 import { Modal } from 'antd';
 import { useState, type FC } from 'react';
 import { useSetRecoilState } from 'recoil';

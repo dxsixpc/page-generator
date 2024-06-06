@@ -1,6 +1,6 @@
 /* eslint-disable import/namespace */
 import * as fieldMap from 'src/fieldConfig';
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 
 /**
  * @name 通过id，找到对应的componentItem
@@ -9,7 +9,7 @@ import { type ComponentItemType } from 'src/type';
  */
 const getComponentItem = (
   componentItems: ComponentItemType[],
-  id: string,
+  id: string
 ): ComponentItemType | undefined => {
   return componentItems.find((item) => item.id === id) || fieldMap[id.split('-')[0]]?.componentItem;
 };

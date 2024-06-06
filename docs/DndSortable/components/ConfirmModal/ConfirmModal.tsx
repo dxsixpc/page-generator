@@ -1,15 +1,15 @@
 import { type FC, type PropsWithChildren } from 'react';
 import { ConfirmModalWrapper } from './Styled';
 
-export interface ConfirmModalProps {
+export type ConfirmModalProps = {
   onConfirm: () => void;
   onDeny: () => void;
-}
+};
 
 const ConfirmModal: FC<PropsWithChildren<ConfirmModalProps>> = ({
   onConfirm,
   onDeny,
-  children,
+  children
 }) => (
   <ConfirmModalWrapper>
     <h1>{children}</h1>

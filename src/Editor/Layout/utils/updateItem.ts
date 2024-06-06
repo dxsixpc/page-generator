@@ -1,4 +1,4 @@
-import { ConfigType, type AnyObject, type ComponentStructureType } from 'src/type';
+import { ConfigType, type AnyObject, type ComponentStructureType } from 'src/types';
 const ConfigTypeMap = new ConfigType();
 
 /**
@@ -10,7 +10,7 @@ const ConfigTypeMap = new ConfigType();
 const updateItem = (
   componentStructure: ComponentStructureType,
   id: string,
-  changeValue: AnyObject,
+  changeValue: AnyObject
 ): ComponentStructureType => {
   if (!changeValue) return componentStructure;
   const { componentItems, structureItems } = componentStructure;
@@ -21,20 +21,20 @@ const updateItem = (
         if (Object.keys(changeValue)[0] in ConfigTypeMap) {
           return {
             ...item,
-            ...changeValue,
+            ...changeValue
           };
         }
         return {
           ...item,
           props: {
             ...item.props,
-            ...changeValue,
-          },
+            ...changeValue
+          }
         };
       }
       return item;
     }),
-    structureItems,
+    structureItems
   };
 };
 

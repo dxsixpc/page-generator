@@ -1,20 +1,19 @@
 import {
-  type ComponentMap,
   type OptionsConfigType,
   type OptionType,
   type SelectProps,
   type StyledType,
-  type TextAreaProps,
-} from '@dxsixpc/components';
+  type TextAreaProps
+} from '@zpcscc/components';
 import { type FormItemProps } from 'antd';
 import { type FC } from 'react';
-import { type AnyObject } from './Custom';
+import type * as fieldMap from 'src/fieldConfig';
 
 /**
  * @name component组件参数的类型
  * @description 传入组件内部的参数变量类型,这里只列出新增的自定义类型
  */
-export interface PropsType {
+export type PropsType = {
   // ** 部分可复用组件配置
   // 选项配置。单选，多选
   optionsConfig?: OptionsConfigType<any>;
@@ -38,7 +37,7 @@ export interface PropsType {
 
   // 其他参数，参考具体组件的api
   [key: string]: any;
-}
+};
 
 // 组件item中可配置的字段类型
 export class ConfigType {
@@ -58,30 +57,54 @@ type ConfigAndFormItemType = ConfigType & Omit<FormItemProps, 'children'>;
 /**
  * @name component对象的类型
  */
-export interface ComponentItemType<T = AnyObject> extends ConfigAndFormItemType {
+export type ComponentItemType<T = AnyObject> = {
   // ** 以下是固定字段，不可动态配置；可配置的类型，请放在ConfigType中
   // 每个组件的唯一标识id
   id: string;
   // 组件的类型
-  type: keyof typeof ComponentMap;
+  type: string;
   // 组件的参数集合，props里的内容会传到组件里
   props?: T & PropsType;
   // 可嵌套的子组件
   children?: ComponentItemType[];
-}
+} & ConfigAndFormItemType;
 
 // 结构对象类型
-export interface StructureItemType {
+export type StructureItemType = {
   // 每个组件的唯一标识id
   id: string;
   // 可嵌套的子组件
   children?: StructureItemType[];
-}
+};
 
-export interface ComponentStructureType {
+export type ComponentStructureType = {
   componentItems: ComponentItemType[];
   structureItems: StructureItemType[];
-}
+};
 
 // 外部传入的组件对象类型
 export type ComponentMapType = Record<string, FC<any>>;
+
+// 任意对象类型
+export type AnyObject = Record<string, any>;
+
+// 字段配置默认类型，这里的类型用作左侧组件列表展示
+export type FieldConfigType<T = AnyObject> = {
+  // 左侧组件列表图标
+  icon?: string;
+  // 左侧组件列表名称
+  label: string;
+  // 组件初始数据
+  componentItem: ComponentItemType<T>;
+  // 右侧组件配置面板数据
+  configPanel: (value?: AnyObject) => ComponentItemType[];
+};
+
+export type FieldMapType = Record<keyof typeof fieldMap, FieldConfigType>;
+
+export type EditorPropsType = {
+  currentId?: string;
+  onSelect?: (id: string) => void;
+  onDelete?: (id: string) => void;
+  onCopy?: (id: string) => void;
+};

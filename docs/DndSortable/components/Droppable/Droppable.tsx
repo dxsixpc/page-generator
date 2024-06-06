@@ -4,15 +4,15 @@ import { type FC, type ReactNode } from 'react';
 import styles from './Droppable.module.css';
 import { droppable } from './droppable-svg';
 
-export interface DroppableProps {
+export type DroppableProps = {
   children: ReactNode;
   dragging: boolean;
   id: UniqueIdentifier;
-}
+};
 
 const Droppable: FC<DroppableProps> = ({ children, id, dragging }) => {
   const { isOver, setNodeRef } = useDroppable({
-    id,
+    id
   });
 
   return (
@@ -22,7 +22,7 @@ const Droppable: FC<DroppableProps> = ({ children, id, dragging }) => {
         styles.Droppable,
         isOver && styles.over,
         dragging && styles.dragging,
-        children && styles.dropped,
+        children && styles.dropped
       )}
       aria-label='Droppable region'
     >

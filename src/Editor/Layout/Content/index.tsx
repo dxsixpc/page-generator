@@ -1,5 +1,5 @@
 import { useDroppable } from '@dnd-kit/core';
-import { uniqueId } from 'lodash';
+import { getUuid } from '@zpcscc/utils';
 import { type FC } from 'react';
 import { useRecoilState } from 'recoil';
 import currentState from 'src/Editor/atoms/currentState';
@@ -7,7 +7,7 @@ import { Render } from 'src/Render';
 import componentStructureState from '../../atoms/componentStructureState';
 import { copyItem, deleteItem, getFieldConfig } from '../utils';
 import ContentHeader from './ContentHeader';
-import { ContentLayoutWrapper, ContentWrapper } from './Styled';
+import { ContentLayoutWrapper, ContentPlaceholderWrapper, ContentWrapper } from './Styled';
 
 // 中间画布内容区域
 const Content: FC = () => {
@@ -33,16 +33,16 @@ const Content: FC = () => {
                   setComponentStructure((componentStructure) => deleteItem(componentStructure, id));
                 },
                 onCopy: (id) => {
-                  const newId = uniqueId(`${id.split('-')[0]}-`);
+                  const newId = getUuid(4, `${id.split('-')[0]}-`);
                   setCurrent({ fieldConfig: getFieldConfig(id), currentId: newId });
                   setComponentStructure((componentStructure) =>
-                    copyItem(componentStructure, id, newId),
+                    copyItem(componentStructure, id, newId)
                   );
-                },
+                }
               }}
             />
           ) : (
-            <div className='content-placeholder'>点击/拖拽左侧栏的组件进行添加</div>
+            <ContentPlaceholderWrapper>点击/拖拽左侧栏的组件进行添加</ContentPlaceholderWrapper>
           )}
         </div>
       </ContentWrapper>

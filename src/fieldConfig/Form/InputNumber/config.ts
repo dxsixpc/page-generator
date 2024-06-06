@@ -1,4 +1,4 @@
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 import { labelSpaceConfig, maxConfig, minConfig, placeholderConfig } from '../../commonConfig';
 
 // 整数输入框配置项
@@ -9,7 +9,7 @@ export const inputNumberConfig = (): ComponentItemType[] => {
     {
       id: 'Space',
       type: 'Space',
-      children: [minConfig(), maxConfig()],
-    },
+      children: [minConfig(), maxConfig()]
+    }
   ];
 };

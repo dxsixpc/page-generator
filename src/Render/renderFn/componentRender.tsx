@@ -1,14 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { getComponent } from '@dxsixpc/components';
 import { css } from '@emotion/react';
 import { isEmpty, isNil, omit } from 'lodash';
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 import { FormItemWrapper, editorStyled } from '../Styled';
+import { getComponent } from '../components';
 import { type BaseRenderType } from './type';
 
-export interface ComponentRenderProps extends BaseRenderType {
+export type ComponentRenderProps = {
   componentItem?: ComponentItemType;
-}
+} & BaseRenderType;
 
 // 渲染组件
 const componentRender = (props: ComponentRenderProps) => {

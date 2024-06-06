@@ -1,6 +1,6 @@
 import { type DragEndEvent } from '@dnd-kit/core';
 import { type SetterOrUpdater } from 'recoil';
-import { type ComponentStructureType } from 'src/type';
+import { type ComponentStructureType } from 'src/types';
 import { isContainer } from 'src/utils';
 import { findContainerItem, findStructureItem, updateComponentStructure } from '../utils';
 
@@ -14,7 +14,7 @@ import { findContainerItem, findStructureItem, updateComponentStructure } from '
 const onDragOver = (
   event: DragEndEvent,
   componentStructure: ComponentStructureType,
-  setComponentStructure: SetterOrUpdater<ComponentStructureType>,
+  setComponentStructure: SetterOrUpdater<ComponentStructureType>
 ) => {
   const { active, over } = event;
   if (!over?.id) return;
@@ -65,8 +65,8 @@ const onDragOver = (
         deleteItemId: activeId,
         addContainerId: isContainer(overId) ? overId : overContainerItem.id,
         newStructureItem: activeStructureItem,
-        structureIndex: overIndex === -1 ? overContainerChildren.length : overIndex,
-      }),
+        structureIndex: overIndex === -1 ? overContainerChildren.length : overIndex
+      })
     );
   }
   return false;

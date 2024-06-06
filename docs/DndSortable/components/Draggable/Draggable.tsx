@@ -10,10 +10,10 @@ import { draggable, draggableHorizontal, draggableVertical } from './draggable-s
 export enum Axis {
   All,
   Vertical,
-  Horizontal,
+  Horizontal
 }
 
-export interface DraggableProps {
+export type DraggableProps = {
   axis?: Axis;
   dragOverlay?: boolean;
   dragging?: boolean;
@@ -23,7 +23,7 @@ export interface DraggableProps {
   style?: CSSProperties;
   buttonStyle?: CSSProperties;
   transform?: Transform | null;
-}
+};
 
 const Draggable = forwardRef<HTMLButtonElement, DraggableProps>(
   (
@@ -39,7 +39,7 @@ const Draggable = forwardRef<HTMLButtonElement, DraggableProps>(
       buttonStyle,
       ...props
     },
-    ref,
+    ref
   ) => {
     return (
       <div
@@ -47,13 +47,13 @@ const Draggable = forwardRef<HTMLButtonElement, DraggableProps>(
           styles.Draggable,
           dragOverlay && styles.dragOverlay,
           dragging && styles.dragging,
-          handle && styles.handle,
+          handle && styles.handle
         )}
         style={
           {
             ...style,
             '--translate-x': `${transform?.x ?? 0}px`,
-            '--translate-y': `${transform?.y ?? 0}px`,
+            '--translate-y': `${transform?.y ?? 0}px`
           } as CSSProperties
         }
       >
@@ -69,14 +69,14 @@ const Draggable = forwardRef<HTMLButtonElement, DraggableProps>(
           {axis === Axis.Vertical
             ? draggableVertical
             : axis === Axis.Horizontal
-            ? draggableHorizontal
-            : draggable}
+              ? draggableHorizontal
+              : draggable}
           {handle ? <Handle {...(handle ? listeners : {})} /> : null}
         </button>
         {label ? <label>{label}</label> : null}
       </div>
     );
-  },
+  }
 );
 
 Draggable.displayName = 'Draggable';

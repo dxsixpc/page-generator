@@ -1,6 +1,6 @@
-import { MonacoEditor, Title } from '@dxsixpc/components';
-import { Render, type AnyObject, type ComponentItemType } from '@dxsixpc/generator';
-import { dataToString, stringToData } from '@dxsixpc/utils';
+import { MonacoEditor, Title } from '@zpcscc/components';
+import { Render, type AnyObject, type ComponentItemType } from '@zpcscc/generator';
+import { toData, toString } from '@zpcscc/utils';
 import { useEffect, useState, type FC } from 'react';
 import { EditorSpace, RenderSpace, SpaceWrapper } from './Styled';
 import { pageData } from './mock';
@@ -10,7 +10,7 @@ const RenderPanel: FC = () => {
   const [value, setValue] = useState<ComponentItemType[]>(pageData);
 
   const onChange = (value?: string) => {
-    const newValueData = stringToData(value);
+    const newValueData = toData(value);
     // 是正确的数组，再更新数据
     if (Array.isArray(newValueData)) {
       setValue(newValueData);
@@ -35,7 +35,7 @@ const RenderPanel: FC = () => {
       <EditorSpace direction='vertical'>
         <Title>代码编辑器</Title>
         <MonacoEditor
-          defaultValue={dataToString(value, null, 2)}
+          defaultValue={toString(value, null, 2)}
           height={500}
           width={500}
           language='json'

@@ -1,5 +1,5 @@
-import { type CheckboxGroupProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type CheckboxGroupProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { checkboxOptionsConfig } from '../../commonConfig';
 import { checkboxConfig } from './config';
 
@@ -13,10 +13,10 @@ const checkbox: FieldConfigType<CheckboxGroupProps> = {
     showLabel: true,
     props: {
       size: 'large',
-      optionsConfig: checkboxOptionsConfig().props?.optionsConfig,
-    },
+      optionsConfig: checkboxOptionsConfig().props?.optionsConfig
+    }
   },
-  configPanel: checkboxConfig,
+  configPanel: checkboxConfig
 };
 
 export default checkbox;

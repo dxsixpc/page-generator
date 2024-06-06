@@ -1,4 +1,4 @@
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 
 // 间隔配置项
 export const spaceConfig = (): ComponentItemType[] => {
@@ -11,9 +11,9 @@ export const spaceConfig = (): ComponentItemType[] => {
         placeholder: '请选择排列方向',
         options: [
           { label: '水平排列', value: 'horizontal' },
-          { label: '垂直排列', value: 'vertical' },
-        ],
-      },
+          { label: '垂直排列', value: 'vertical' }
+        ]
+      }
     },
     {
       id: 'align',
@@ -25,9 +25,9 @@ export const spaceConfig = (): ComponentItemType[] => {
           { label: '首部对齐', value: 'start' },
           { label: '尾部对齐', value: 'end' },
           { label: '居中对齐', value: 'center' },
-          { label: '基准线对齐', value: 'baseline' },
-        ],
-      },
-    },
+          { label: '基准线对齐', value: 'baseline' }
+        ]
+      }
+    }
   ];
 };

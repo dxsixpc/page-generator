@@ -1,3 +1,3 @@
 module.exports = {
-  ...require('@dxsixpc/configs/prettier-config'),
+  ...require('@zpcscc/configs/prettier-config'),
 };

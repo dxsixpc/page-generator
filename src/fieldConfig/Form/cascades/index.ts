@@ -1,5 +1,5 @@
-import { type CascadeProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type CascadeProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { cascadeConfig } from './config';
 // import { provinceCityAreaCascadeData } from './province-city-china';
 
@@ -19,7 +19,7 @@ const cascadeDataMock = [
   ['北京市', '怀柔区', '怀柔区'],
   ['北京市', '平谷区', '平谷区'],
   ['北京市', '密云区', '密云区'],
-  ['北京市', '延庆区', '延庆区'],
+  ['北京市', '延庆区', '延庆区']
 ];
 
 // 级联选择框
@@ -37,10 +37,10 @@ const cascade: FieldConfigType<CascadeProps> = {
       cascadeData: cascadeDataMock,
       // cascadeData: provinceCityAreaCascadeData(),
       selectOptions: { size: 'large' },
-      textAreaOptions: { size: 'large' },
-    },
+      textAreaOptions: { size: 'large' }
+    }
   },
-  configPanel: cascadeConfig,
+  configPanel: cascadeConfig
 };
 
 export default cascade;

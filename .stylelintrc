@@ -1,3 +1,3 @@
 {
-  "extends": "@dxsixpc/configs/stylelint-config"
+  "extends": "@zpcscc/configs/stylelint-config"
 }

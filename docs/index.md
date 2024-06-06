@@ -9,5 +9,5 @@ hero:
     - text: 渲染器
       link: /render-panel
     - text: 博客
-      link: https://dxsixpc.github.io/
+      link: https://zpcscc.top
 ---

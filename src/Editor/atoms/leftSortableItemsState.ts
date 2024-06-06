@@ -1,4 +1,4 @@
-import { uniqueId } from 'lodash';
+import { getUuid } from '@zpcscc/utils';
 import { atom } from 'recoil';
 import * as fieldMap from 'src/fieldConfig';
 
@@ -7,7 +7,7 @@ import * as fieldMap from 'src/fieldConfig';
  */
 const leftSortableItemsState = atom<string[]>({
   key: 'leftSortableItems',
-  default: Object.keys(fieldMap).map((item) => uniqueId(`${item}-`)),
+  default: Object.keys(fieldMap).map((item) => getUuid(4, `${item}-`))
 });
 
 export default leftSortableItemsState;

@@ -1,5 +1,5 @@
 import { arrayMove } from '@dnd-kit/sortable';
-import { type StructureItemType } from 'src/type';
+import { type StructureItemType } from 'src/types';
 
 /**
  * @name 项目排序
@@ -11,7 +11,7 @@ import { type StructureItemType } from 'src/type';
 const sortItems = (
   items: StructureItemType[],
   activeId: string | number,
-  overId: string | number,
+  overId: string | number
 ) => {
   const oldIndex = items?.findIndex((item) => item?.id === activeId);
   const newIndex = items?.findIndex((item) => item?.id === overId);

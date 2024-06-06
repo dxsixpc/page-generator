@@ -1,10 +1,10 @@
 import { atom } from 'recoil';
-import { type FieldConfigType } from 'src/type';
+import { type FieldConfigType } from 'src/types';
 
-interface CurrentStateProps {
+type CurrentStateProps = {
   fieldConfig?: FieldConfigType;
   currentId?: string;
-}
+};
 
 /**
  * @name 当前选中的组件默认配置信息
@@ -13,8 +13,8 @@ const currentState = atom<CurrentStateProps>({
   key: 'current',
   default: {
     fieldConfig: undefined,
-    currentId: undefined,
-  },
+    currentId: undefined
+  }
 });
 
 export default currentState;

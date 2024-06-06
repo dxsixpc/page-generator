@@ -1,5 +1,5 @@
-import { type RadioGroupProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type RadioGroupProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { radioOptionsConfig } from '../../commonConfig';
 import { radioConfig } from './config';
 
@@ -13,10 +13,10 @@ const radio: FieldConfigType<RadioGroupProps> = {
     showLabel: true,
     props: {
       size: 'large',
-      optionsConfig: radioOptionsConfig().props?.optionsConfig,
-    },
+      optionsConfig: radioOptionsConfig().props?.optionsConfig
+    }
   },
-  configPanel: radioConfig,
+  configPanel: radioConfig
 };
 
 export default radio;

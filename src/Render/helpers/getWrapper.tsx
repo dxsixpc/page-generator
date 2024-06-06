@@ -2,18 +2,18 @@ import {
   SortableContext,
   horizontalListSortingStrategy,
   verticalListSortingStrategy,
-  type SortingStrategy,
+  type SortingStrategy
 } from '@dnd-kit/sortable';
 import { Fragment, type FC } from 'react';
-import { type AnyObject, type ComponentItemType, type StructureItemType } from 'src/type';
+import { type AnyObject, type ComponentItemType, type StructureItemType } from 'src/types';
 import SortableContainer from '../SortableContainer';
 
 type WrapperType = 'editor' | 'play' | 'component';
 
-interface WrapperResult {
+type WrapperResult = {
   Wrapper: FC<any>;
   wrapperProps?: AnyObject;
-}
+};
 
 /**
  * @name 通过type,返回对应的包装容器
@@ -23,7 +23,7 @@ interface WrapperResult {
 const getWrapper = (
   type: WrapperType,
   structureItem?: StructureItemType,
-  componentItem?: ComponentItemType,
+  componentItem?: ComponentItemType
 ): WrapperResult => {
   const { children } = structureItem || {};
   let strategy: SortingStrategy;
@@ -38,7 +38,7 @@ const getWrapper = (
       }
       return {
         Wrapper: SortableContext,
-        wrapperProps: { items: children, strategy },
+        wrapperProps: { items: children, strategy }
       };
     }
     case 'component': {

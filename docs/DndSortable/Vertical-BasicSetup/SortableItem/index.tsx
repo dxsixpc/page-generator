@@ -4,17 +4,17 @@ import { type CSSProperties, type FC } from 'react';
 import Item from './Item';
 import { LiWrapper } from './Styled';
 
-export interface SortableItemProps {
+export type SortableItemProps = {
   id: UniqueIdentifier;
   index: number;
-}
+};
 
 // 拖拽项目，内包裹着需要拖拽的内容
 const SortableItem: FC<SortableItemProps> = (props) => {
   const { id, index } = props;
 
   const { isDragging, attributes, listeners, setNodeRef, transform, transition } = useSortable({
-    id,
+    id
   });
 
   return (
@@ -26,7 +26,7 @@ const SortableItem: FC<SortableItemProps> = (props) => {
           '--translate-y': transform ? `${Math.round(transform.y)}px` : undefined,
           '--scale-x': transform?.scaleX ? `${transform.scaleX}` : undefined,
           '--scale-y': transform?.scaleY ? `${transform.scaleY}` : undefined,
-          '--index': index,
+          '--index': index
         } as CSSProperties
       }
       ref={setNodeRef}

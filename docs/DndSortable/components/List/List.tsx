@@ -3,12 +3,12 @@ import { forwardRef, type CSSProperties, type ReactNode } from 'react';
 
 import styles from './List.module.css';
 
-export interface ListProps {
+export type ListProps = {
   children: ReactNode;
   columns?: number;
   style?: CSSProperties;
   horizontal?: boolean;
-}
+};
 
 const List = forwardRef<HTMLUListElement, ListProps>(
   ({ children, columns = 1, horizontal, style }: ListProps, ref) => {
@@ -18,7 +18,7 @@ const List = forwardRef<HTMLUListElement, ListProps>(
         style={
           {
             ...style,
-            '--columns': columns,
+            '--columns': columns
           } as CSSProperties
         }
         className={classNames(styles.List, horizontal && styles.horizontal)}
@@ -26,7 +26,7 @@ const List = forwardRef<HTMLUListElement, ListProps>(
         {children}
       </ul>
     );
-  },
+  }
 );
 
 List.displayName = 'List';

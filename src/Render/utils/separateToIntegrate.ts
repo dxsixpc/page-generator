@@ -1,9 +1,9 @@
-import { type ComponentItemType, type StructureItemType } from 'src/type';
+import { type ComponentItemType, type StructureItemType } from 'src/types';
 
 // 分离 -> 集成
 const separateToIntegrate = (
   componentItems: ComponentItemType[],
-  structureItems?: StructureItemType[],
+  structureItems?: StructureItemType[]
 ) => {
   // 若没有单独写布局，则直接返回组件列表
   if (!structureItems) return componentItems || [];
@@ -14,9 +14,9 @@ const separateToIntegrate = (
       component?.children
         ? {
             ...componentItems.find((item) => item?.id === component?.id),
-            children: loopComponents(component?.children),
+            children: loopComponents(component?.children)
           }
-        : componentItems.find((item) => item?.id === component?.id),
+        : componentItems.find((item) => item?.id === component?.id)
     ) as ComponentItemType[];
   };
 

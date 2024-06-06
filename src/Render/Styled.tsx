@@ -6,9 +6,9 @@ export const editorStyled = css`
   pointer-events: none;
 `;
 
-export interface FormItemWrapperProps {
+export type FormItemWrapperProps = {
   styled?: string;
-}
+};
 
 // 表单子项
 export const FormItemWrapper = styled(Form.Item)<FormItemWrapperProps>`

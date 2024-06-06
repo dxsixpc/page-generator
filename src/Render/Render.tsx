@@ -6,14 +6,14 @@ import {
   type ComponentItemType,
   type ComponentMapType,
   type EditorPropsType,
-  type StructureItemType,
-} from 'src/type';
+  type StructureItemType
+} from 'src/types';
 import { FormWrapper } from './Styled';
 import { getWrapper } from './helpers';
 import { loopRender } from './renderFn';
 import { integrateToSeparate } from './utils';
 
-export interface RenderProps {
+export type RenderProps = {
   // 表单组件列表
   componentItems?: ComponentItemType[];
   // 初始值
@@ -25,10 +25,10 @@ export interface RenderProps {
   // 表单参数
   formOptions?: FormProps;
   // 值改变时
-  onChange?: (changedValues: AnyObject, values: AnyObject, form: FormInstance<any>) => void;
+  onChange?: (changedValues: AnyObject, values: any, form: FormInstance<any>) => void;
   // 编辑器画布渲染需要用到的参数
   editorProps?: EditorPropsType;
-}
+};
 
 /**
  * @name 渲染器
@@ -58,7 +58,7 @@ const Render: FC<RenderProps> = (props) => {
   const isEditor = !isEmpty(editorProps);
   const { Wrapper, wrapperProps } = getWrapper(isEditor ? 'editor' : 'play', {
     id: 'root',
-    children: structureItems,
+    children: structureItems
   });
 
   return (
@@ -75,7 +75,7 @@ const Render: FC<RenderProps> = (props) => {
             structureItems,
             defaultValue,
             componentMap,
-            editorProps,
+            editorProps
           })}
         </Wrapper>
       </FormWrapper>

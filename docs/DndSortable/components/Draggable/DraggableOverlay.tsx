@@ -12,9 +12,9 @@ const dropAnimationConfig: DropAnimation = {
         transform: CSS.Transform.toString({
           ...transform.final,
           scaleX: 0.94,
-          scaleY: 0.94,
-        }),
-      },
+          scaleY: 0.94
+        })
+      }
     ];
   },
   sideEffects({ active, dragOverlay }) {
@@ -25,33 +25,33 @@ const dropAnimationConfig: DropAnimation = {
         [
           {
             boxShadow:
-              '-1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)',
+              '-1px 0 15px 0 rgba(34, 33, 81, 0.01), 0px 15px 15px 0 rgba(34, 33, 81, 0.25)'
           },
           {
-            boxShadow: '-1px 0 15px 0 rgba(34, 33, 81, 0), 0px 15px 15px 0 rgba(34, 33, 81, 0)',
-          },
+            boxShadow: '-1px 0 15px 0 rgba(34, 33, 81, 0), 0px 15px 15px 0 rgba(34, 33, 81, 0)'
+          }
         ],
         {
           duration: 250,
           easing: 'ease',
-          fill: 'forwards',
-        },
+          fill: 'forwards'
+        }
       );
     }
     return () => {
       active.node.style.opacity = '';
     };
-  },
+  }
 };
 
-export interface DraggableOverlayProps {
+export type DraggableOverlayProps = {
   axis?: ComponentProps<typeof Draggable>['axis'];
   dropAnimation?: DropAnimation | null;
-}
+};
 
 const DraggableOverlay: FC<DraggableOverlayProps> = ({
   axis,
-  dropAnimation = dropAnimationConfig,
+  dropAnimation = dropAnimationConfig
 }) => {
   const { active } = useDndContext();
 
@@ -59,7 +59,7 @@ const DraggableOverlay: FC<DraggableOverlayProps> = ({
     <DragOverlay dropAnimation={dropAnimation}>
       {active ? <Draggable axis={axis} dragging dragOverlay /> : null}
     </DragOverlay>,
-    document.body,
+    document.body
   );
 };
 

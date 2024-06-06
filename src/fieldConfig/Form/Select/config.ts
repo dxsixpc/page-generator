@@ -1,4 +1,4 @@
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 import { labelSpaceConfig, placeholderConfig } from '../../commonConfig';
 
 // 下拉框组件配置项
@@ -18,10 +18,10 @@ export const selectConfig = (): ComponentItemType[] => {
           options: [
             { label: '选项1', value: '选项1' },
             { label: '选项2', value: '选项2' },
-            { label: '选项3', value: '选项3' },
-          ],
-        },
-      },
-    },
+            { label: '选项3', value: '选项3' }
+          ]
+        }
+      }
+    }
   ];
 };

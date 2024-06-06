@@ -3,6 +3,7 @@ import { useRecoilValue } from 'recoil';
 import componentStructureState from 'src/Editor/atoms/componentStructureState';
 import { Render } from 'src/Render';
 import { type ModelType } from '../type';
+import { PreviewWrapper } from './Styled';
 
 // 预览弹出框
 const usePreviewModel = (setModalType: (modelType: ModelType | null) => void): ModalProps => {
@@ -15,10 +16,10 @@ const usePreviewModel = (setModalType: (modelType: ModelType | null) => void): M
     onCancel: () => setModalType(null),
     onOk: () => setModalType(null),
     children: (
-      <div style={{ height: '500px', width: '100%', overflowY: 'scroll' }}>
+      <PreviewWrapper>
         <Render componentItems={componentItems} structureItems={structureItems} />
-      </div>
-    ),
+      </PreviewWrapper>
+    )
   };
 };
 

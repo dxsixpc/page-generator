@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { type StructureItemType } from 'src/type';
+import { type StructureItemType } from 'src/types';
 
 /**
  * @name 输入元素id，找到id所在所在的容器item
@@ -9,7 +9,7 @@ import { type StructureItemType } from 'src/type';
  */
 const findContainerItem = (
   structureItems?: StructureItemType[],
-  id?: string,
+  id?: string
 ): StructureItemType | undefined => {
   if (!id || !structureItems) return undefined;
   let currStructureItem: StructureItemType | undefined;

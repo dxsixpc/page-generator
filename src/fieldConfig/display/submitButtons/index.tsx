@@ -1,5 +1,5 @@
-import { type ButtonProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type ButtonProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { submitButtonConfig } from './config';
 
 // 提交按钮
@@ -12,11 +12,11 @@ const submitButton: FieldConfigType<ButtonProps> = {
       type: 'primary',
       children: '提交按钮',
       styled: {
-        width: '100%',
-      },
-    },
+        width: '100%'
+      }
+    }
   },
-  configPanel: submitButtonConfig,
+  configPanel: submitButtonConfig
 };
 
 export default submitButton;

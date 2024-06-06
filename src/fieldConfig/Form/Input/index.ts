@@ -1,5 +1,5 @@
-import { type InputProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type InputProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { inputConfig } from './config';
 
 // 输入框
@@ -12,10 +12,10 @@ const input: FieldConfigType<InputProps> = {
     label: '输入框',
     props: {
       placeholder: '请输入单行文本',
-      size: 'large',
-    },
+      size: 'large'
+    }
   },
-  configPanel: inputConfig,
+  configPanel: inputConfig
 };
 
 export default input;

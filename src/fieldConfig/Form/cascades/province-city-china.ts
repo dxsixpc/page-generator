@@ -8,20 +8,20 @@ import { type ProvinceCityChinaType } from './type';
 export const provinceCityChina: ProvinceCityChinaType = {
   Province: province,
   City: [...city, ...specialProvinceJson.City],
-  Area: [...area, ...specialProvinceJson.Area],
+  Area: [...area, ...specialProvinceJson.Area]
 };
 
-interface ProvinceType {
+type ProvinceType = {
   c: string;
   n: string;
   p?: string;
-}
+};
 
-interface ProvinceJsonType {
+type ProvinceJsonType = {
   Province: ProvinceType[];
   City: ProvinceType[];
   Area: ProvinceType[];
-}
+};
 
 // 将省市区数据转为通用级联数据
 export const provinceCityAreaCascadeData = () => {
@@ -33,7 +33,7 @@ export const provinceCityAreaCascadeData = () => {
   newProvinceJson.Area.forEach((currArea) => {
     const cityCode = currArea.c.slice(0, 4);
     const currCity = newProvinceJson.City.find(
-      (cityItem) => cityItem.c.slice(0, 4) === cityCode.slice(0, 4),
+      (cityItem) => cityItem.c.slice(0, 4) === cityCode.slice(0, 4)
     );
 
     const currProvince = newProvinceJson.Province.find((provinceItem) => {
@@ -53,7 +53,7 @@ export const provinceCityAreaCascadeData = () => {
   newProvinceJson.City.forEach((cityItem) => {
     if (!cityCodes.includes(cityItem.c)) {
       const prov = newProvinceJson.Province.find(
-        (provinceItem) => provinceItem.c === cityItem.c.slice(0, 2),
+        (provinceItem) => provinceItem.c === cityItem.c.slice(0, 2)
       );
       if (prov) items.push([prov.n, cityItem.n, cityItem.n]);
     }

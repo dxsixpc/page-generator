@@ -1,3 +1,3 @@
 export * from './Editor';
 export * from './Render';
-export * from './type';
+export * from './types';

@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { type StructureItemType } from 'src/type';
+import { type StructureItemType } from 'src/types';
 import sortItems from './sortItems';
 
 /**
@@ -14,7 +14,7 @@ const sortStructureItems = (
   activeId: string,
   overId: string,
   // 需要排序的容器id
-  containerId?: string,
+  containerId?: string
 ): StructureItemType[] => {
   // 递归循环遍历数据
   const loopItems = (items: StructureItemType[]) => {
@@ -25,7 +25,7 @@ const sortStructureItems = (
       return {
         ...item,
         children:
-          item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children),
+          item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children)
       };
     });
   };

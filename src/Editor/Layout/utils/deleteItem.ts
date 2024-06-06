@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import { type ComponentStructureType, type StructureItemType } from 'src/type';
+import { type ComponentStructureType, type StructureItemType } from 'src/types';
 import formatItems from './formatItems';
 
 /**
@@ -10,29 +10,26 @@ import formatItems from './formatItems';
  */
 const deleteItem = (
   componentStructure: ComponentStructureType,
-  id: string,
+  id: string
 ): ComponentStructureType => {
   const { componentItems, structureItems } = componentStructure;
   // 递归循环遍历数据
-  const loopItems = (items: StructureItemType[]) => {
+  const loopItems = (items: StructureItemType[]): StructureItemType[] => {
     return items
-      .map((item) =>
-        item.id === id
-          ? null
-          : {
-              id: item.id,
-              children:
-                item.children === undefined || isEmpty(item.children)
-                  ? null
-                  : loopItems(item.children),
-            },
-      )
-      .filter(Boolean);
+      .map((item) => {
+        if (item.id !== id) {
+          const children =
+            item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children);
+          return { id: item.id, children };
+        }
+        return null;
+      })
+      .filter(Boolean) as StructureItemType[];
   };
 
   return formatItems(
     componentItems.filter((item) => item.id !== id),
-    loopItems(structureItems),
+    loopItems(structureItems)
   );
 };
 

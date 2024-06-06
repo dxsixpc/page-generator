@@ -1,8 +1,8 @@
 import { cloneDeep, isEmpty } from 'lodash';
-import { type ComponentStructureType, type StructureItemType } from 'src/type';
+import { type ComponentStructureType, type StructureItemType } from 'src/types';
 import formatItems from './formatItems';
 
-interface updateComponentStructureProps {
+type updateComponentStructureProps = {
   // 完整的元素数据与元素结构
   componentStructure: ComponentStructureType;
   // 需要被删除的id
@@ -13,7 +13,7 @@ interface updateComponentStructureProps {
   newStructureItem: StructureItemType;
   // 新内容需要添加的位置索引
   structureIndex: number;
-}
+};
 
 /**
  * @name 输入id，删除此项structure
@@ -26,7 +26,7 @@ const updateComponentStructure = (props: updateComponentStructureProps): Compone
     props;
   const { componentItems, structureItems } = componentStructure;
   // 递归循环遍历数据
-  const loopItems = (items: StructureItemType[]) => {
+  const loopItems = (items: StructureItemType[]): StructureItemType[] => {
     return items
       .map((item) => {
         // 删除对应的元素
@@ -43,10 +43,10 @@ const updateComponentStructure = (props: updateComponentStructureProps): Compone
         return {
           ...item,
           children:
-            item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children),
+            item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children)
         };
       })
-      .filter(Boolean);
+      .filter(Boolean) as StructureItemType[];
   };
   const cloneStructureItems = cloneDeep(structureItems) || [];
   // 先递归处理，后判断是否为根元素。若先处理根元素，则递归时，可能会把根元素已添加的元素删除。

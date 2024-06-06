@@ -3,12 +3,12 @@ import {
   type CSSProperties,
   type HTMLAttributes,
   type ReactNode,
-  type RefObject,
+  type RefObject
 } from 'react';
 import { Handle, Remove } from '../Item';
 import { ActionsWrapper, ButtonWrapper, DivWrapper, HeaderWrapper } from './Styled';
 
-export interface ContainerProps {
+export type ContainerProps = {
   children: ReactNode;
   columns?: number;
   label?: string;
@@ -22,7 +22,7 @@ export interface ContainerProps {
   unstyled?: boolean;
   onClick?: () => void;
   onRemove?: () => void;
-}
+};
 
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   (
@@ -42,7 +42,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
       unstyled,
       ...props
     }: ContainerProps,
-    ref,
+    ref
   ) => {
     const Component = onClick ? ButtonWrapper : DivWrapper;
 
@@ -52,7 +52,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
       hover,
       placeholder,
       scrollable,
-      shadow,
+      shadow
     };
 
     return (
@@ -62,7 +62,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         style={
           {
             ...style,
-            '--columns': columns,
+            '--columns': columns
           } as CSSProperties
         }
         onClick={onClick}
@@ -81,7 +81,7 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(
         {placeholder ? children : <ul>{children}</ul>}
       </Component>
     );
-  },
+  }
 );
 
 Container.displayName = 'Container';

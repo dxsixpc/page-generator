@@ -1,6 +1,6 @@
 import { type UniqueIdentifier } from '@dnd-kit/core';
 import { isEmpty } from 'lodash';
-import { type StructureItemType } from 'src/type';
+import { type StructureItemType } from 'src/types';
 
 /**
  * @name 输入容器id，找到id所在的item
@@ -10,7 +10,7 @@ import { type StructureItemType } from 'src/type';
  */
 const findStructureItem = (
   structureItems?: StructureItemType[],
-  id?: UniqueIdentifier,
+  id?: UniqueIdentifier
 ): StructureItemType | undefined => {
   if (!id || !structureItems) return undefined;
   let structureItem;

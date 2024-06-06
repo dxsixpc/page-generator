@@ -1,4 +1,4 @@
-import { type AnyObject } from 'src/type';
+import { type AnyObject } from 'src/types';
 import { provinceCityAreaCascadeData } from './province-city-china';
 
 // 数组转化成字符串，用于手动输入面板显示
@@ -39,7 +39,7 @@ export const value2Panel = (initValue?: AnyObject): AnyObject => {
   const panelValue = { ...initValue };
   if (panelValue.sourceType === 'manualInput' && typeof Array.isArray(panelValue.cascadeData)) {
     // 若用户选择手工输入，且输入的是数组，则将数组转为级联数据格式
-    panelValue.cascadeData = arr2str(panelValue.cascadeData);
+    panelValue.cascadeData = arr2str(panelValue.cascadeData as string[][]);
   }
 
   return panelValue;

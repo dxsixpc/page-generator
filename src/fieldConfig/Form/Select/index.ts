@@ -1,5 +1,5 @@
-import { type SelectProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type SelectProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { radioOptionsConfig } from '../../commonConfig';
 import { selectConfig } from './config';
 
@@ -14,10 +14,10 @@ const select: FieldConfigType<SelectProps> = {
     props: {
       size: 'large',
       placeholder: '请选择...',
-      options: radioOptionsConfig().props?.optionsConfig?.options,
-    },
+      options: radioOptionsConfig().props?.optionsConfig?.options
+    }
   },
-  configPanel: selectConfig,
+  configPanel: selectConfig
 };
 
 export default select;

@@ -1,4 +1,4 @@
-import { type ComponentItemType } from 'src/type';
+import { type ComponentItemType } from 'src/types';
 
 // 提交按钮配置项
 export const submitButtonConfig = (): ComponentItemType[] => {
@@ -7,7 +7,7 @@ export const submitButtonConfig = (): ComponentItemType[] => {
       id: 'children',
       label: '按钮文案',
       type: 'Input',
-      props: { placeholder: '请输入文案' },
-    },
+      props: { placeholder: '请输入文案' }
+    }
   ];
 };

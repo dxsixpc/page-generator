@@ -1,16 +1,16 @@
-import { getComponent } from '@dxsixpc/components';
 import { isEmpty } from 'lodash';
-import { type ComponentItemType, type StructureItemType } from 'src/type';
+import { type ComponentItemType, type StructureItemType } from 'src/types';
 import { isContainer } from 'src/utils';
+import { getComponent } from '../components';
 import { getWrapper } from '../helpers';
 import loopRender from './loopRender';
 import { type BaseRenderType } from './type';
 
-export interface ContainerRenderProps extends BaseRenderType {
+export type ContainerRenderProps = {
   componentItem?: ComponentItemType;
   structureItem?: StructureItemType;
   componentItems: ComponentItemType[];
-}
+} & BaseRenderType;
 
 // 渲染包含children的布局组件
 const containerRender = (props: ContainerRenderProps) => {
@@ -23,7 +23,7 @@ const containerRender = (props: ContainerRenderProps) => {
   const { Wrapper, wrapperProps } = getWrapper(
     isEditor ? 'editor' : 'play',
     structureItem,
-    componentItem,
+    componentItem
   );
   const Component = getComponent(type);
   return (
@@ -34,7 +34,7 @@ const containerRender = (props: ContainerRenderProps) => {
           structureItems: children,
           defaultValue,
           componentMap,
-          editorProps,
+          editorProps
         })}
       </Component>
     </Wrapper>

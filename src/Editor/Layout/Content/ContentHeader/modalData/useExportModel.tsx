@@ -1,6 +1,6 @@
-import { SimpleCodeEditor } from '@dxsixpc/components';
-import { separateToIntegrate } from '@dxsixpc/generator';
-import { dataToString } from '@dxsixpc/utils';
+import { SimpleCodeEditor } from '@zpcscc/components';
+import { separateToIntegrate } from '@zpcscc/generator';
+import { toString } from '@zpcscc/utils';
 import { Button, Space, message, type ModalProps } from 'antd';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useRecoilValue } from 'recoil';
@@ -11,7 +11,7 @@ import { type ModelType } from '../type';
 const useExportModel = (setModalType: (modelType: ModelType | null) => void): ModalProps => {
   const { componentItems, structureItems } = useRecoilValue(componentStructureState);
   const componentItemsData = separateToIntegrate(componentItems, structureItems);
-  const value = dataToString(componentItemsData, null, 2);
+  const value = toString(componentItemsData, null, 2);
 
   return {
     title: '导出',
@@ -40,7 +40,7 @@ const useExportModel = (setModalType: (modelType: ModelType | null) => void): Mo
           overflow: auto;
         `}
       />
-    ),
+    )
   };
 };
 

@@ -1,7 +1,7 @@
-import { type AnyObject, type ComponentMapType, type EditorPropsType } from 'src/type';
+import { type AnyObject, type ComponentMapType, type EditorPropsType } from 'src/types';
 
-export interface BaseRenderType {
+export type BaseRenderType = {
   defaultValue?: AnyObject;
   componentMap?: ComponentMapType;
   editorProps?: EditorPropsType;
-}
+};

@@ -1,6 +1,6 @@
 // 这这里对每个组件进行统一配置
-import { type OptionsConfigType } from '@dxsixpc/components';
-import { type ComponentItemType } from 'src/type';
+import { type OptionsConfigType } from '@zpcscc/components';
+import { type ComponentItemType } from 'src/types';
 
 /**
  * @name 标题配置
@@ -10,7 +10,7 @@ export const labelConfig = (): ComponentItemType => ({
   label: '标题',
   type: 'Input',
   rules: [{ required: true, message: '不能为空' }],
-  props: { placeholder: '请输入标题' },
+  props: { placeholder: '请输入标题' }
 });
 
 /**
@@ -20,7 +20,7 @@ export const showLabelConfig = (): ComponentItemType => ({
   id: 'showLabel',
   type: 'Checkbox',
   label: '显示标题',
-  styled: { width: '70px' },
+  styled: { width: '70px' }
 });
 
 /**
@@ -29,7 +29,7 @@ export const showLabelConfig = (): ComponentItemType => ({
 export const labelSpaceConfig = (): ComponentItemType => ({
   id: 'LabelSpace',
   type: 'Space',
-  children: [labelConfig(), showLabelConfig()],
+  children: [labelConfig(), showLabelConfig()]
 });
 
 /**
@@ -39,7 +39,7 @@ export const placeholderConfig = (): ComponentItemType => ({
   id: 'placeholder',
   label: '占位符',
   type: 'Input',
-  props: { placeholder: '请输入占位符' },
+  props: { placeholder: '请输入占位符' }
 });
 
 /**
@@ -56,10 +56,10 @@ export const radioOptionsConfig = (): ComponentItemType => ({
       options: [
         { label: '选项1', value: '选项1' },
         { label: '选项2', value: '选项2' },
-        { label: '选项3', value: '选项3' },
-      ],
-    } as OptionsConfigType<'Radio'>,
-  },
+        { label: '选项3', value: '选项3' }
+      ]
+    } as OptionsConfigType<'Radio'>
+  }
 });
 
 /**
@@ -76,10 +76,10 @@ export const checkboxOptionsConfig = (): ComponentItemType => ({
       options: [
         { label: '选项1', value: '选项1' },
         { label: '选项2', value: '选项2' },
-        { label: '选项3', value: '选项3' },
-      ],
-    } as OptionsConfigType<'Checkbox'>,
-  },
+        { label: '选项3', value: '选项3' }
+      ]
+    } as OptionsConfigType<'Checkbox'>
+  }
 });
 
 /**
@@ -89,5 +89,5 @@ export const showCountConfig = (): ComponentItemType => ({
   id: 'showCount',
   label: '显示字数',
   type: 'Switch',
-  tooltip: '在输入时，实时显示输入的字数',
+  tooltip: '在输入时，实时显示输入的字数'
 });

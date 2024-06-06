@@ -8,12 +8,12 @@ import {
   type CSSProperties,
   type ReactElement,
   type ReactNode,
-  type Ref,
+  type Ref
 } from 'react';
 import styles from './Item.module.css';
 import { Handle, Remove } from './components';
 
-export interface ItemProps {
+export type ItemProps = {
   dragOverlay?: boolean;
   color?: string;
   disabled?: boolean;
@@ -44,7 +44,7 @@ export interface ItemProps {
     transition: ItemProps['transition'];
     value: ItemProps['value'];
   }) => ReactElement;
-}
+};
 
 const Item = memo(
   forwardRef<HTMLLIElement, ItemProps>(
@@ -70,7 +70,7 @@ const Item = memo(
         wrapperStyle,
         ...props
       },
-      ref,
+      ref
     ) => {
       useEffect(() => {
         if (!dragOverlay) {
@@ -96,7 +96,7 @@ const Item = memo(
           style,
           transform,
           transition,
-          value,
+          value
         })
       ) : (
         <li
@@ -104,7 +104,7 @@ const Item = memo(
             styles.Wrapper,
             fadeIn && styles.fadeIn,
             sorting && styles.sorting,
-            dragOverlay && styles.dragOverlay,
+            dragOverlay && styles.dragOverlay
           )}
           style={
             {
@@ -115,7 +115,7 @@ const Item = memo(
               '--scale-x': transform?.scaleX ? `${transform.scaleX}` : undefined,
               '--scale-y': transform?.scaleY ? `${transform.scaleY}` : undefined,
               '--index': index,
-              '--color': color,
+              '--color': color
             } as CSSProperties
           }
           ref={ref}
@@ -127,7 +127,7 @@ const Item = memo(
               handle && styles.withHandle,
               dragOverlay && styles.dragOverlay,
               disabled && styles.disabled,
-              color && styles.color,
+              color && styles.color
             )}
             style={style}
             data-cypress='draggable-item'
@@ -143,8 +143,8 @@ const Item = memo(
           </div>
         </li>
       );
-    },
-  ),
+    }
+  )
 );
 
 export default Item;

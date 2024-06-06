@@ -6,9 +6,9 @@ import {
   pointerWithin,
   useSensor,
   useSensors,
-  type CollisionDetection,
+  type CollisionDetection
 } from '@dnd-kit/core';
-import { uniqueId } from 'lodash';
+import { getUuid } from '@zpcscc/utils';
 import { useCallback, useState, type FC } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import componentStructureState from 'src/Editor/atoms/componentStructureState';
@@ -37,9 +37,9 @@ const Layout: FC<EditorProps> = (props) => {
     useSensor(PointerSensor, {
       activationConstraint: {
         // 拖移偏移1px的距离后再触发拖拽排序事件。若不设置偏移距离，会使拖拽事件覆盖掉点击事件。导致无法点击聚焦。
-        distance: 1,
-      },
-    }),
+        distance: 1
+      }
+    })
   );
 
   const collisionDetection: CollisionDetection = useCallback((args) => {
@@ -70,9 +70,9 @@ const Layout: FC<EditorProps> = (props) => {
             // 若此次添加的是新元素，则更新左侧组件的id
             setLeftSortableItems((items) =>
               items.map((item) => {
-                if (item === event.active.id) return uniqueId(`${item.split('-')[0]}-`);
+                if (item === event.active.id) return getUuid(4, `${item.split('-')[0]}-`);
                 return item;
-              }),
+              })
             );
           }
         }}

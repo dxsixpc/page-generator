@@ -1,5 +1,5 @@
-import { type InputNumberProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type InputNumberProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { inputNumberConfig } from './config';
 
 // 数字输入框
@@ -12,10 +12,10 @@ const inputNumber: FieldConfigType<InputNumberProps> = {
     showLabel: true,
     props: {
       placeholder: '请输入数字',
-      size: 'large',
-    },
+      size: 'large'
+    }
   },
-  configPanel: inputNumberConfig,
+  configPanel: inputNumberConfig
 };
 
 export default inputNumber;

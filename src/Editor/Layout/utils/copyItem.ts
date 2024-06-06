@@ -1,9 +1,10 @@
-import { isEmpty, uniqueId } from 'lodash';
+import { getUuid } from '@zpcscc/utils';
+import { isEmpty } from 'lodash';
 import {
   type ComponentItemType,
   type ComponentStructureType,
-  type StructureItemType,
-} from 'src/type';
+  type StructureItemType
+} from 'src/types';
 
 /**
  * @name 输入id，复制此项
@@ -14,10 +15,10 @@ import {
 const copyItem = (
   componentStructure: ComponentStructureType,
   id: string,
-  newId?: string,
+  newId?: string
 ): ComponentStructureType => {
   const { componentItems, structureItems } = componentStructure;
-  const newUnId = newId || uniqueId(`${id.split('-')[0]}-`);
+  const newUnId = newId || getUuid(4, `${id.split('-')[0]}-`);
   const newComponentItems = [...componentItems];
 
   // 递归循环遍历数据
@@ -31,7 +32,7 @@ const copyItem = (
           children:
             curr.children === undefined || isEmpty(curr.children)
               ? undefined
-              : loopItems(curr.children),
+              : loopItems(curr.children)
         });
       }
       return prev;
@@ -40,12 +41,12 @@ const copyItem = (
 
   newComponentItems.splice(componentItems.findIndex((item) => item.id === id) + 1, 0, {
     ...componentItems.find((item) => item.id === id),
-    id: newUnId,
+    id: newUnId
   } as ComponentItemType);
 
   return {
     componentItems: newComponentItems,
-    structureItems: loopItems(structureItems),
+    structureItems: loopItems(structureItems)
   };
 };
 

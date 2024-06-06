@@ -2,14 +2,14 @@ import { CopyOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { type FC, type ReactNode } from 'react';
-import { type EditorPropsType } from 'src/type';
+import { type EditorPropsType } from 'src/types';
 import { PointerWrapper, SortableWrapper } from './Styled';
 
-export interface SortableContainerProps {
+export type SortableContainerProps = {
   children: ReactNode;
   id?: string;
   editorProps?: EditorPropsType;
-}
+};
 
 /**
  * @name 包裹在组件外的拖拽容器
@@ -20,7 +20,7 @@ const SortableContainer: FC<SortableContainerProps> = (props) => {
   const { id = '', children, editorProps } = props;
   const { onSelect, onCopy, onDelete, currentId } = editorProps || {};
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
-    id,
+    id
   });
   const isFocus = currentId === id;
 
@@ -35,8 +35,8 @@ const SortableContainer: FC<SortableContainerProps> = (props) => {
         opacity: isDragging ? 0.5 : undefined,
         ...(isFocus && {
           outline: '2px solid rgb(64, 158, 255)',
-          borderColor: 'rgb(255, 255, 255)',
-        }),
+          borderColor: 'rgb(255, 255, 255)'
+        })
       }}
       onFocus={(e) => {
         const target = e.target as HTMLDivElement;

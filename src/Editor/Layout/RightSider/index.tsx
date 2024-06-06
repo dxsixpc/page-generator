@@ -3,16 +3,16 @@ import { omit } from 'lodash';
 import { useEffect, type FC } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { Render } from 'src/Render';
-import { type AnyObject, type ComponentItemType } from 'src/type';
+import { type AnyObject, type ComponentItemType } from 'src/types';
 import componentStructureState from '../../atoms/componentStructureState';
 import currentState from '../../atoms/currentState';
 import { updateItem } from '../utils';
 import { LeftSiderWrapper } from './Styled';
 
-export interface LeftSiderProps {
+export type LeftSiderProps = {
   // 值改变时
   onChange?: (pageData: ComponentItemType[]) => void;
-}
+};
 
 // 右侧组件配置面板,用于渲染配置项
 const RightSider: FC<LeftSiderProps> = () => {
@@ -23,14 +23,14 @@ const RightSider: FC<LeftSiderProps> = () => {
   const { configPanel } = fieldConfig || {};
   const defaultValue = {
     ...omit(componentItem, ['id', 'type', 'props', 'children']),
-    ...componentItem?.props,
+    ...componentItem?.props
   };
   const [form] = Form.useForm();
 
   const onValuesChange = (changeValue?: AnyObject, values?: AnyObject) => {
     if (currentId && changeValue) {
       setComponentStructure((componentStructure) =>
-        updateItem(componentStructure, currentId, changeValue),
+        updateItem(componentStructure, currentId, changeValue)
       );
     }
   };

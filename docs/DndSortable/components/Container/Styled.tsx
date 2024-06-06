@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-interface ContainerWrapperProps {
+type ContainerWrapperProps = {
   styled: {
     unstyled?: boolean;
     horizontal?: boolean;
@@ -9,7 +9,7 @@ interface ContainerWrapperProps {
     scrollable?: boolean;
     shadow?: boolean;
   };
-}
+};
 
 const containerWrapper = (props: ContainerWrapperProps): string => {
   return `

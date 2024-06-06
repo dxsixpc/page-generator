@@ -1,5 +1,5 @@
-import { type SpaceProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type SpaceProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { spaceConfig } from './config';
 
 const space: FieldConfigType<SpaceProps> = {
@@ -9,10 +9,10 @@ const space: FieldConfigType<SpaceProps> = {
     type: 'Space',
     props: {
       direction: 'horizontal',
-      align: 'start',
-    },
+      align: 'start'
+    }
   },
-  configPanel: spaceConfig,
+  configPanel: spaceConfig
 };
 
 export default space;

@@ -1,5 +1,5 @@
-import { type TextAreaProps } from '@dxsixpc/components';
-import { type FieldConfigType } from 'src/type';
+import { type TextAreaProps } from '@zpcscc/components';
+import { type FieldConfigType } from 'src/types';
 import { inputConfig } from '../input/config';
 
 // 文本框
@@ -11,10 +11,10 @@ const textarea: FieldConfigType<TextAreaProps> = {
     label: '文本框',
     showLabel: true,
     props: {
-      placeholder: '请输入文本',
-    },
+      placeholder: '请输入文本'
+    }
   },
-  configPanel: inputConfig,
+  configPanel: inputConfig
 };
 
 export default textarea;

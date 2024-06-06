@@ -2,8 +2,8 @@ import { isEmpty } from 'lodash';
 import {
   type ComponentItemType,
   type ComponentStructureType,
-  type StructureItemType,
-} from 'src/type';
+  type StructureItemType
+} from 'src/types';
 import getFieldConfig from './getFieldConfig';
 
 /**
@@ -15,7 +15,7 @@ import getFieldConfig from './getFieldConfig';
 const formatItems = (
   componentItems: ComponentItemType[],
   // 完整的结构数据
-  structureItems: StructureItemType[],
+  structureItems: StructureItemType[]
 ): ComponentStructureType => {
   // 以structureItems为基准，将componentItems里的多余数据删除；
   const newComponentItems: ComponentItemType[] = [];
@@ -24,13 +24,13 @@ const formatItems = (
     return items
       .map((item) => {
         const currComponentItem = componentItems.find(
-          (componentItem) => componentItem.id === item.id,
+          (componentItem) => componentItem.id === item.id
         ) || { ...getFieldConfig(item.id).componentItem, id: item.id };
         newComponentItems.push(currComponentItem);
         return {
           ...item,
           children:
-            item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children),
+            item.children === undefined || isEmpty(item.children) ? null : loopItems(item.children)
         };
       })
       .filter(Boolean);
@@ -40,7 +40,7 @@ const formatItems = (
 
   return {
     componentItems: newComponentItems,
-    structureItems,
+    structureItems
   };
 };
 

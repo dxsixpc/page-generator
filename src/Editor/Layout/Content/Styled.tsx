@@ -27,11 +27,15 @@ export const ContentWrapper = styled.div`
   & > div {
     height: 100%;
   }
-  .content-placeholder {
-    color: rgba(0, 0, 0, 0.4);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  ::-webkit-scrollbar {
+    display: none;
   }
+`;
+
+export const ContentPlaceholderWrapper = styled.div`
+  color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

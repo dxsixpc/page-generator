@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import { type CSSProperties, type FC, type ReactNode } from 'react';
 import styles from './Wrapper.module.css';
 
-export interface WrapperProps {
+export type WrapperProps = {
   children: ReactNode;
   center?: boolean;
   style?: CSSProperties;
-}
+};
 
 const Wrapper: FC<WrapperProps> = ({ children, center, style }) => {
   return (

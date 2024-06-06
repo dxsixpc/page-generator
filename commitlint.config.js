@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@dxsixpc/configs/commitlint-config'],
+  extends: ['@zpcscc/configs/commitlint-config'],
 };

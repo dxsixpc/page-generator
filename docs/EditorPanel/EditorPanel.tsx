@@ -1,10 +1,10 @@
-import { Editor, type ComponentItemType } from '@dxsixpc/generator';
+import { Editor, type ComponentItemType } from '@zpcscc/generator';
 import { useEffect, type FC } from 'react';
 import { EditorWrapper } from './Styled';
 
-interface EditorProps {
+type EditorProps = {
   value: string;
-}
+};
 
 // 编辑器
 const EditorPanel: FC<EditorProps> = () => {
